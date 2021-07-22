@@ -17,8 +17,10 @@ A full stack Android personal finance and wealth management app built in Android
 - JavaScript (Node.js)
 ### APIs
 - [Plaid API](https://plaid.com/docs/api/)
+  - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return JSON responses*):
+    - [Institutions](https://plaid.com/docs/api/institutions/): retrieve data (e.g. the institution's id, name, supported Plaid products, logo, etc.) about supported financial institutions
+    - [Account](https://plaid.com/docs/api/accounts/): fetch account information (e.g. the accounts's id, name, balance, type, etc.) and schemas (the account, currency code, and investment transaction types and corresponding subtypes recognized by Plaid)
+    - [Token](https://plaid.com/docs/api/tokens): ...
   - To use the Plaid API, you will need to receive API keys by signing up [here](https://dashboard.plaid.com/signin?redirect=%2Foverview). Once you have signed up, you will have access to two API keys: `client_id` and `secret`. You can find your Plaid API keys [here](https://dashboard.plaid.com/account/keys). You will also see that there are three different environments in which you can use the Plaid API: Sandbox, Development, and Production. CapitalGuard was built in the Sandbox environment, which gives you access to test credentials and life-like data.
     - Sandbox environment simple test credentials: username: `user_good`, password: `pass_good`, pin: `credential_good` (when required). You can learn more about Sandbox test credentials [here](https://plaid.com/docs/sandbox/test-credentials/).
-  
-  Hello
 
