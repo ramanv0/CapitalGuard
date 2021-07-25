@@ -17,13 +17,16 @@ A full stack Android personal finance and wealth management app built in Android
 - JavaScript (Node.js)
 ### APIs
 - [Plaid API](https://plaid.com/docs/api/)
-  - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return JSON responses*):
+  - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return standard JSON responses*):
     - [Institutions](https://plaid.com/docs/api/institutions/): retrieve data (e.g. the institution's id, name, supported Plaid products, logo, etc.) about supported financial institutions
     - [Account](https://plaid.com/docs/api/accounts/): fetch account information (e.g. the accounts's id, name, balance, type, etc.) and schemas (the account, currency code, and investment transaction types and corresponding subtypes recognized by Plaid)
     - [Token](https://plaid.com/docs/api/tokens): obtain a `link_token` to initialize [Plaid Link](https://plaid.com/docs/link/), which is the client-side component that the user interacts with in order to connect their financial accounts with the Plaid API. Once Link is initialized and the user has successfully created an `Item` (*Note: `Item` is a Plaid term for a login at a financial institution*), it will return a `public_token` through an [`onSuccess`](https://plaid.com/docs/link/web/#onsuccess) callback that can be [exchanged](https://plaid.com/docs/api/tokens/#itempublic_tokenexchange) for a Plaid API `access_token`. The `access_token` must be obtained in order to call Plaid API endpoints and retrieve information about an `Item`.
     - [Transactions](https://plaid.com/docs/api/products/#transactions): receive paginated user-authorized transaction data for credit, depository, and loan-type accounts
     - [Auth](https://plaid.com/docs/api/products/#auth): retrieve and verify bank account and identification numbers (e.g. routing numbers), and high-level account auth data
     - [Balance](https://plaid.com/docs/api/products/#balance): obtain real-time balance data for each of an `Item`'s financial accounts
+    - [Identity](https://plaid.com/docs/api/products/#identity): retrieve and verify the user's identity (name, address, phone number, email) against obtained bank account information
+    - [Assets](https://plaid.com/docs/api/products/#assets): access the user's financial information to create and retrieve Asset Reports that contain detailed information about the user's assets and transactions, which can be used for loan underwriting
+    - [Investments](https://plaid.com/docs/api/products/#investments): get user-authorized stock position and transaction data from the user's investment accounts
   - To use the Plaid API, you will need to receive API keys by signing up [here](https://dashboard.plaid.com/signin?redirect=%2Foverview). Once you have signed up, you will have access to two API keys: `client_id` and `secret`. You can find your Plaid API keys [here](https://dashboard.plaid.com/account/keys). You will also see that there are three different environments in which you can use the Plaid API: Sandbox, Development, and Production. CapitalGuard was built in the Sandbox environment, which gives you access to test credentials and life-like data.
     - Sandbox environment simple test credentials -> username: `user_good`, password: `pass_good`, pin: `credential_good` (when required). You can learn more about Sandbox test credentials [here](https://plaid.com/docs/sandbox/test-credentials/).
 
