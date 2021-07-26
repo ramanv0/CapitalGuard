@@ -34,10 +34,29 @@ A full stack Android personal finance and wealth management app built in Android
   - CapitalGuard uses the Dialogflow API to build a personal finance assistant that is able to answer users' questions about their financial health based on their financial data retrieved via the Plaid API and stored in the Firebase database
   - Since CapitalGuard uses a custom-built, in-app conversation platform, and not one of Dialogflow's [integrations](https://cloud.google.com/dialogflow/es/docs/integrations), I had to write code that directly interacts with the end-user. I also had to directly and asynchronously interact with the Dialogflow API for each conversational turn in order to send end-user expressions to Dialogflow and receive information about intent matches. You can learn more about the processing flow when interacting with the Dialogflow API [here](https://cloud.google.com/dialogflow/es/docs/api-overview).
   - To use the Dialogflow API in CapitalGuard, you will need to set up a Google Cloud Platform (GCP) project and authentication. To do so, follow the steps in the GCP [Setup quickstart](https://cloud.google.com/dialogflow/docs/quick/setup): It will guide you through all of the steps required to start using the Dialogflow API, such as creating a Dialogflow project, GCP billing, enabling the Dialogflow API and audit logs, setting up authentication with service accounts and keys (for more information about authentication, you can also read [this](https://cloud.google.com/docs/authentication)), initializing the Google Cloud SDK (the Cloud SDK provides many useful tools for managing resources hosted on Google Cloud), and installing the Dialogflow API client library. 
-    - CapitalGuard uses the most common option for calling GCP APIs (in this case, the Dialogflow API): Google supported client libraries. There are two other options for calling the Dialogflow API: REST and gRPC (you can read more about these [here](https://cloud.google.com/dialogflow/es/docs/reference/api-overview)). The Dialogflow API client library was installed in CapitalGuard by adding the following to the project's Gradle dependencies:
+    - CapitalGuard uses the most common option for calling GCP APIs (in this case, the Dialogflow API): Google supported client libraries. There are two other options for calling the Dialogflow API: REST and gRPC (you can read more about them [here](https://cloud.google.com/dialogflow/es/docs/reference/api-overview)). The Dialogflow API client library was installed in CapitalGuard by adding the following to the project's Gradle dependencies:
     ```
     implementation platform('com.google.cloud:libraries-bom:20.8.0')
 
     compile 'com.google.cloud:google-cloud-dialogflow'
     ```
     If you choose to setup your CapitalGuard project with [Maven](https://maven.apache.org/) or [sbt](https://www.scala-sbt.org/), you can learn how to install the Dialogflow API [here](https://cloud.google.com/dialogflow/es/docs/quick/setup#lib).
+  - After you setup your GCP project and authentication, you will need to build agents, which are virtual agents that are trained to handle expected conversations with end-users, using the Dialogflow Console. You can learn more about how Dialogflow agents work [here](https://cloud.google.com/dialogflow/es/docs/agents-overview).
+    - To build an agent:
+      1. Go to your [Dialogflow Console](https://dialogflow.cloud.google.com/#/login) and sign in
+      2. Click "Create Agent" in the left sidebar menu
+      3. Enter the requested information (agent's name, language, time zone)
+      4. Select "Create a new Google project"
+      5. Click "Create"
+  - Once you created your agent, you will need to define and train intents to categorize end-user intentions for each conversation turn. The combined intents of a successful agent should be able to handle a complete conversation with the end-user. When the end-user writes a question to CapitalGuard's personal financial assistant bot, Dialogflow matches the question to the best intent in your agent.
+    - To define a basic intent:
+      1. Click the add intent button in the left sidebar menu
+      2. Enter the name of your intent in the "Intent name" field
+      3. Click "Add training phrases" in the "Training Phrases" section, and enter your training phrases
+         - Training phrases are example phrases for what the end-user might ask. In the process of intent classification, Dialogflow matches the end-user's question to the intent whose training phrase(s) it most resembles. It is best that you define a handful (~10-20, depending on the complexity of your intent) of training phrases to improve the accuracy of the intent classification; however, Dialogflow utilizes machine learning to expand your list with other similar phrases.
+      4. In the "Responses" section, enter the response you want your financial assistant bot to return to the end-user if the intent is matched in the Text Response section
+         - Responses are not limited to text: You can have a speech or visual response, too. 
+         - Responses can provide the end-user with a one-time answer, ask for more information, or terminate the conversation.
+      5. Click "Save" and wait until the agent training is complete
+      6. Test your intent using the chatbot simulator in the right sidebar
+      To learn more about Dialogflow intents (Action, Parameters, Contexts, and Events), go [here](https://cloud.google.com/dialogflow/es/docs/intents-overview).
