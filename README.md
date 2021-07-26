@@ -16,7 +16,7 @@ A full stack Android personal finance and wealth management app built in Android
 - XML
 - JavaScript (Node.js)
 ### APIs
-- [Plaid API](https://plaid.com/docs/api/)
+- **[Plaid API](https://plaid.com/docs/api/)**
   - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return standard JSON responses*):
     - [Institutions](https://plaid.com/docs/api/institutions/): retrieve data (e.g. the institution's id, name, supported Plaid products, logo, etc.) about supported financial institutions
     - [Account](https://plaid.com/docs/api/accounts/): fetch account information (e.g. the accounts's id, name, balance, type, etc.) and schemas (the account, currency code, and investment transaction types and corresponding subtypes recognized by Plaid)
@@ -29,4 +29,7 @@ A full stack Android personal finance and wealth management app built in Android
     - [Investments](https://plaid.com/docs/api/products/#investments): get user-authorized stock position and transaction data from the user's investment accounts
   - To use the Plaid API in CapitalGuard, you will need to receive API keys by signing up [here](https://dashboard.plaid.com/signin?redirect=%2Foverview). Once you have signed up, you will have access to two API keys: `client_id` and `secret`. You can find your Plaid API keys [here](https://dashboard.plaid.com/account/keys). Then, in MainActivityJava.java, you must set the value of `clientUserId` in the `createLinkToken` method to your `client_id` and insert your `client_id` and `secret` as the first and second arguments of `clientIdAndSecret`, respectively, in the `createPlaidClient` method. You will also see that there are three different environments in which you can use the Plaid API: Sandbox, Development, and Production. CapitalGuard was built in the Sandbox environment, which gives you access to test credentials and life-like data.
     - Sandbox environment simple test credentials -> username: `user_good`, password: `pass_good`, pin: `credential_good` (when required). You can learn more about Sandbox test credentials [here](https://plaid.com/docs/sandbox/test-credentials/).
+
+- **[Dialogflow API](https://cloud.google.com/dialogflow/es/docs)**
+  - Since CapitalGuard uses a custom-built, in-app conversation platform, and not one of Dialogflow's [integrations](https://cloud.google.com/dialogflow/es/docs/integrations), I had to write code that directly interacts with the end-user. I also had to directly and asynchronously interact with the Dialogflow API for each conversational turn in order to send end-user expressions to Dialogflow and receive information about intent matches. You can learn more about the processing flow when interacting with the Dialogflow API [here](https://cloud.google.com/dialogflow/es/docs/api-overview).
 
