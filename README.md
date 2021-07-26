@@ -61,3 +61,15 @@ A full stack Android personal finance and wealth management app built in Android
       6. Test your intent using the chatbot simulator in the right sidebar
       
       To learn more about Dialogflow intents (Action, Parameters, Contexts, and Events), go [here](https://cloud.google.com/dialogflow/es/docs/intents-overview).
+ 
+- **[News API](https://newsapi.org/)**
+  - *Note: requests to the REST News API return JSON search results for current and historic news articles*
+  - CapitalGuard uses the News API to retrieve news articles from sources and blogs across the web. Sentiment analysis is then performed on the articles to provide users with advice on potential investment opportunities.
+  - To use the News API in CapitalGuard, you will need to register for a News API key, which are free while you are in development, [here](https://newsapi.org/register). 
+  - Once you are registered and have obtained a News API key, follow the [Get started](https://newsapi.org/register) guide.
+    - The News API offers two main endpoints:
+      1. `/everything`: Search for articles on the web that mention a keyword or phrase
+      2. `/top-headlines`: Get the current top headlines for a country, category, or publisher
+    - CapitalGuard uses the `/everything` endpoint––endpoint (a)––in order to find news articles that mention the ticker symbol of the stock that the user is interested in buying and wants to receive advice for. To learn more about the request parameters and JSON response object of the `/everything` endpoint, you can read [this](https://newsapi.org/docs/endpoints/everything).
+  - To authenticate the News API in CapitalGuard, you need to ...
+
