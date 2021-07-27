@@ -95,7 +95,7 @@ A full stack Android personal finance and wealth management app built in Android
     1. Apply and receive approval for a developer account
        - The Twitter API offers two product tracks: Standard or Academic Research. CapitalGuard uses the Standard Twitter API product track, which is the default track for most developers. You can apply for the Standard product track [here](https://developer.twitter.com/en/apply-for-access).
        - Once your developer account is approved, you can create a Standard project by following [this](https://developer.twitter.com/en/docs/projects/overview) guide and an associated developer App that will provide you a set of keys and tokens that you will use to authenticate all requests to the Twitter API.
-    2. Save your developer App's key and tokens
+    2. Save your developer App's keys and tokens
        - Within your developer App, you will be able to find or generate:
          - API Key: The "username" that will allow you to make Twitter API requests from CapitalGuard
          - API Secret (Key): The "password" that will allow you to make Twitter API requests from CapitalGuard
