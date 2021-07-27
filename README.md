@@ -105,3 +105,6 @@ A full stack Android personal finance and wealth management app built in Android
     4. Make requests to the Twitter API to retrieve tweets
        - Because CapitalGuard is built in Java, and the Twitter API currently maintains only JavaScript, Python, and Ruby official libraries and SDKs, I chose to use the [Twitter4J](https://twitter4j.org/en/index.html) community-supported Java library to integrate the Twitter API into CapitalGuard, as it implements all features of the Standard v1.1 API. Other community-supported Java libraries for the Twitter API include [twitter-client](https://github.com/redouane59/twitter-client) and [JTwitter](https://github.com/winterstein/JTwitter). To learn more about how to make requests to and receive responses from the Twitter API via the Twitter4J library, go to the [Twitter4J section](TODO: Add link) of this README file.
 
+### Important Libraries
+- **[AnyChart JavaScript library](https://www.anychart.com/products/anychart/overview/)**
+  - CapitalGuard uses the AnyChart JavaScript library to create interactive visualizations of users' spending data retrieved using the Plaid API. 
