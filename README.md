@@ -71,5 +71,20 @@ A full stack Android personal finance and wealth management app built in Android
       1. `/everything`: Search for articles on the web that mention a keyword or phrase
       2. `/top-headlines`: Get the current top headlines for a country, category, or publisher
     - CapitalGuard uses the `/everything` endpoint––endpoint (a)––in order to find news articles that mention the ticker symbol of the stock that the user is interested in buying and wants to receive advice for. To learn more about the request parameters and JSON response object of the `/everything` endpoint, you can read [this](https://newsapi.org/docs/endpoints/everything).
-  - To authenticate the News API in CapitalGuard, you need to ...
+  - To authenticate the News API in CapitalGuard, in the `getNewsSentiment` method in AdviceActivity.java, you need to set the `apiKey` constructor argument of the instantiated `NewsApiClient` object called `newsApiClient` to your News API key.
+  - To make requests and receive responses from the News API, you need to install the News API Java client library (SDK), which allows us to use the News API without having to make HTTP requests directly.
+    - To install the News API Java client library, you need to:
+      1. Add the JitPack repository to the project's root build.gradle file:
+         ```
+         allprojects {
+           repositories {
+              ...
+              maven { url 'https://jitpack.io' }
+           }
+         }
+         ```
+      2. Add the following dependency to the project's Gradle dependencies:
+         ```
+         implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
+         ```
 
