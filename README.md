@@ -90,5 +90,18 @@ A full stack Android personal finance and wealth management app built in Android
   - To learn more about News API usage, you can go [here](https://newsapi.org/docs).
  
 - **[Twitter API](https://developer.twitter.com/en/docs/twitter-api)**
-  - CapitalGuard uses the Twitter API to retrieve tweets. Sentiment analysis is then performed on the tweets to provide users with advice on potential investment opportunities.
+  - CapitalGuard uses the Twitter API to programmatically retrieve tweets. Sentiment analysis is then performed on the tweets to provide users with advice on potential investment opportunities.
+  - To get access to the Twitter API, you need to:
+    1. Apply and receive approval for a developer account
+       - The Twitter API offers two product tracks: Standard or Academic Research. CapitalGuard uses the Standard Twitter API product track, which is the default track for most developers. You can apply for the Standard product track [here](https://developer.twitter.com/en/apply-for-access).
+       - Once your developer account is approved, you can create a Standard project by following [this](https://developer.twitter.com/en/docs/projects/overview) guide and an associated developer App that will provide you a set of keys and tokens that you will use to authenticate all requests to the Twitter API.
+    2. Save your developer App's key and tokens
+       - Within your developer App, you will be able to find or generate:
+         - API Key: The "username" that will allow you to make Twitter API requests from CapitalGuard
+         - API Secret (Key): The "password" that will allow you to make Twitter API requests from CapitalGuard
+         - Access Token & Access Token Secret: Tokens that represent CapitalGuard's Twitter account and allow you to make Twitter API requests on behalf of the account
+    3.  Set up your Twitter API access
+        - There are currently four Twitter API access methods (you can learn more about them [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)): CapitalGuard uses the Standard v1.1 access, which requires you to authenticate your Twitter API requests with keys and tokens from within the CapitalGuard developer app.
+    4. Make a request to the Twitter API to retrieve tweets
+       - Because CapitalGuard is built in Java, and the Twitter API currently maintains only JavaScript, Python, and Ruby official libraries and SDKs, I chose to use the [Twitter4J](https://twitter4j.org/en/index.html) community-supported Java library for the Twitter API, as it implements all features of the Standard v1.1 API. Other community-supported Java libraries for the Twitter API include [twitter-client](https://github.com/redouane59/twitter-client) and [JTwitter](https://github.com/winterstein/JTwitter). To learn more about how to make requests to and receive responses from the Twitter API via the Twitter4J library, go to the [Twitter4J section](TODO: Add link) of this README file.
 
