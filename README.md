@@ -38,7 +38,7 @@ A full stack Android personal finance and wealth management app built in Android
     ```
     implementation platform('com.google.cloud:libraries-bom:20.8.0')
 
-    compile 'com.google.cloud:google-cloud-dialogflow'
+    implementation 'com.google.cloud:google-cloud-dialogflow'
     ```
     If you choose to setup your CapitalGuard project with [Maven](https://maven.apache.org/) or [sbt](https://www.scala-sbt.org/), you can learn how to install the Dialogflow API [here](https://cloud.google.com/dialogflow/es/docs/quick/setup#lib).
   - After you setup your GCP project and authentication, you will need to build agents, which are virtual agents that are trained to handle expected conversations with end-users, using the Dialogflow Console. You can learn more about how Dialogflow agents work [here](https://cloud.google.com/dialogflow/es/docs/agents-overview).
@@ -107,4 +107,12 @@ A full stack Android personal finance and wealth management app built in Android
 
 ### Important Libraries
 - **[AnyChart JavaScript library](https://www.anychart.com/products/anychart/overview/)**
-  - CapitalGuard uses the AnyChart JavaScript library to create interactive visualizations of users' spending data retrieved using the Plaid API. 
+  - CapitalGuard uses the AnyChart JavaScript library to create interactive visualizations of users' spending data retrieved using the Plaid API, which help users gain a better understanding of their spending behavior.
+  -  The AnyChart library was installed in CapitalGuard by adding the following to the project's Gradle dependencies:
+  ```
+  implementation 'com.github.AnyChart:AnyChart-Android:0.0.3'
+  ```
+  - Alternatively, you can download the [latest AAR file](https://github.com/AnyChart/AnyChart-Android/raw/master/builds/anychart-library.aar) and copy it into the libs folder of the CapitalGuard project. To learn how to do this in Android Studio, you can read the "JAR/ARR File" section of AnyChart's documentation [here](https://www.anychart.com/technical-integrations/samples/android-charts/).
+
+- **[Stanford CoreNLP library](https://stanfordnlp.github.io/CoreNLP/)**
+  - CapitalGuard uses the Stanford CoreNLP library to perform sentiment analysis on news articles, retrieved using the News API, and Twitter tweets, retrieved using the Twitter API via the Twitter4J Java library, to provide users with advice on potential investment opportunities.
