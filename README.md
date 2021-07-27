@@ -88,4 +88,7 @@ A full stack Android personal finance and wealth management app built in Android
          implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
          ```
   - To learn more about News API usage, you can go [here](https://newsapi.org/docs).
+ 
+- **[Twitter API](https://developer.twitter.com/en/docs/twitter-api)**
+  - CapitalGuard uses the Twitter API to retrieve tweets. Sentiment analysis is then performed on the tweets to provide users with advice on potential investment opportunities.
 
