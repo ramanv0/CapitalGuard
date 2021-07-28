@@ -15,6 +15,8 @@ A full stack Android personal finance and wealth management app built in Android
 - Regex
 - XML
 - JavaScript (Node.js)
+### Back end
+- ...
 ### APIs
 - **[Plaid API](https://plaid.com/docs/api/)**
   - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return standard JSON responses*):
