@@ -79,8 +79,8 @@ A full stack Android personal finance and wealth management app built in Android
     - CapitalGuard uses the `/everything` endpoint––endpoint (a)––in order to find news articles that mention the ticker symbol of the stock that the user is interested in buying and wants to receive advice for. To learn more about the request parameters and JSON response object of the `/everything` endpoint, you can read [this](https://newsapi.org/docs/endpoints/everything).
   - To authenticate the News API in CapitalGuard, in the `getNewsSentiment` method in AdviceActivity.java, you need to set the `apiKey` constructor argument of the instantiated `NewsApiClient` object called `newsApiClient` to your News API key.
   - To make requests and receive responses from the News API, you need to install the News API Java client library (SDK), which allows CapitalGuard to use the News API without having to make HTTP requests directly.
-    - The News API Java client library was installed in CapitalGuard by:
-      1. Adding the below JitPack repository to the project's root build.gradle file:
+    - The News API Java client library was installed in CapitalGuard by adding:
+      1. The below JitPack repository to the project's root build.gradle file:
          ```
          allprojects {
            repositories {
@@ -89,7 +89,7 @@ A full stack Android personal finance and wealth management app built in Android
            }
          }
          ```
-      2. Adding the below dependency to the project's Gradle dependencies:
+      2. The below dependency to the project's Gradle dependencies:
          ```
          implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
          ```
@@ -156,6 +156,30 @@ A full stack Android personal finance and wealth management app built in Android
   ```
   - Alternatively, I could have downloaded and added the [twitter4j-core-4.0.7.jar](https://twitter4j.org/archive/twitter4j-4.0.7.zip) file to CapitalGuard's classpath.
   - To learn more about how the Twitter4J library implements Standard v1.1 Twitter API features, you can go [here](https://twitter4j.org/en/code-examples.html).
+
+- **[Material Design Components (MDC)](https://material.io/)**
+  - CapitalGuard uses Google's [MDC library for Android](https://github.com/material-components/material-components-android) to access [Material Components](https://www.material.io/components)––such as buttons, date pickers, and dialogs––which help build a bold and intuitive UI.
+  - The MDC library for Android was installed in CapitalGuard by adding:
+    1. Google's Maven Repository to CapitalGuard's `build.gradle` with `google()`
+    ```
+      allprojects {
+        repositories {
+          google()
+          ...
+        }
+      }
+    ```
+    2. The following Gradle dependency:
+    ```
+    implementation 'com.google.android.material:material:<version>'
+    ```
+    *Note: Make sure that you are using `AppCompatActivity`; otherwise, your Material Components will not work correctly.*
+    
+  - To get access to the latest component styles and theme-level attributes, CapitalGuard's app theme inherits from the following Material Components theme:
+  ```
+  android:theme="@style/Theme.MaterialComponents.NoActionBar"
+  ```
+  - You can find the full list of Material Components themes [here](https://material.io/develop/android/docs/getting-started).
 
 ### API and Library Diagram
 ![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
