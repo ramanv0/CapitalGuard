@@ -29,12 +29,18 @@ A full stack Android personal finance and wealth management app built in Android
     - [Investments](https://plaid.com/docs/api/products/#investments): get user-authorized stock position and transaction data from the user's investment accounts
   - To use the Plaid API in CapitalGuard, you will need to receive API keys by signing up [here](https://dashboard.plaid.com/signin?redirect=%2Foverview). Once you have signed up, you will have access to two API keys: `client_id` and `secret`. You can find your Plaid API keys [here](https://dashboard.plaid.com/account/keys). Then, in MainActivityJava.java, you must set the value of `clientUserId` in the `createLinkToken` method to your `client_id` and insert your `client_id` and `secret` as the first and second arguments of `clientIdAndSecret`, respectively, in the `createPlaidClient` method. You will also see that there are three different environments in which you can use the Plaid API: Sandbox, Development, and Production. CapitalGuard was built in the Sandbox environment, which gives you access to test credentials and life-like data.
     - Sandbox environment simple test credentials -> username: `user_good`, password: `pass_good`, pin: `credential_good` (when required). You can learn more about Sandbox test credentials [here](https://plaid.com/docs/sandbox/test-credentials/).
+  - The Plaid API was installed in CapitalGuard with the following Gradle dependencies:
+  ```
+  implementation 'com.plaid.link:sdk-core:3.2.6'
+  
+  implementation 'com.plaid:plaid-java:8.1.0'
+  ```
 
 - **[Dialogflow API](https://cloud.google.com/dialogflow/es/docs)**
   - CapitalGuard uses the Dialogflow API to build a personal finance assistant that is able to answer users' questions about their financial health based on their financial data retrieved via the Plaid API and stored in the Firebase database.
   - Since CapitalGuard uses a custom-built, in-app conversation platform, and not one of Dialogflow's [integrations](https://cloud.google.com/dialogflow/es/docs/integrations), I had to write code that directly interacts with the end-user. I also had to directly and asynchronously interact with the Dialogflow API for each conversational turn in order to send end-user expressions to Dialogflow and receive information about intent matches. You can learn more about the processing flow when interacting with the Dialogflow API [here](https://cloud.google.com/dialogflow/es/docs/api-overview).
   - To use the Dialogflow API in CapitalGuard, you will need to set up a Google Cloud Platform (GCP) project and authentication. To do so, follow the steps in the GCP [Setup quickstart](https://cloud.google.com/dialogflow/docs/quick/setup): It will guide you through all of the steps required to start using the Dialogflow API, such as creating a Dialogflow project, GCP billing, enabling the Dialogflow API and audit logs, setting up authentication with service accounts and keys (for more information about authentication, you can also read [this](https://cloud.google.com/docs/authentication)), initializing the Google Cloud SDK (the Cloud SDK provides many useful tools for managing resources hosted on Google Cloud), and installing the Dialogflow API client library. 
-    - CapitalGuard uses the most common option for calling GCP APIs (in this case, the Dialogflow API): Google supported client libraries. There are two other options for calling the Dialogflow API: REST and gRPC (you can read more about them [here](https://cloud.google.com/dialogflow/es/docs/reference/api-overview)). The Dialogflow API client library was installed in CapitalGuard by adding the following to the project's Gradle dependencies:
+    - CapitalGuard uses the most common option for calling GCP APIs (in this case, the Dialogflow API): Google supported client libraries. There are two other options for calling the Dialogflow API: REST and gRPC (you can read more about them [here](https://cloud.google.com/dialogflow/es/docs/reference/api-overview)). The Dialogflow API client library was installed in CapitalGuard with the following Gradle dependencies:
     ```
     implementation platform('com.google.cloud:libraries-bom:20.8.0')
 
@@ -100,21 +106,21 @@ A full stack Android personal finance and wealth management app built in Android
          - API Key: The "username" that will allow you to make Twitter API requests from CapitalGuard
          - API Secret (Key): The "password" that will allow you to make Twitter API requests from CapitalGuard
          - Access Token & Access Token Secret: Tokens that represent CapitalGuard's Twitter account and allow you to make Twitter API requests on behalf of the account
-    3.  Set up your Twitter API access
+    3. Set up your Twitter API access
         - There are currently four Twitter API access methods (you can learn more about them [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)): CapitalGuard uses the Standard v1.1 access, which requires you to authenticate your Twitter API requests with keys and tokens from within the CapitalGuard developer app.
     4. Make requests to the Twitter API to retrieve tweets
        - Because CapitalGuard is built in Java, and the Twitter API currently maintains only JavaScript, Python, and Ruby official libraries and SDKs, I chose to use the [Twitter4J](https://twitter4j.org/en/index.html) community-supported Java library to integrate the Twitter API into CapitalGuard, as it implements all features of the Standard v1.1 API. Other community-supported Java libraries for the Twitter API include [twitter-client](https://github.com/redouane59/twitter-client) and [JTwitter](https://github.com/winterstein/JTwitter). To learn more about how to make requests to and receive responses from the Twitter API via the Twitter4J library, go to the [Twitter4J section](TODO: Add link) of this README file.
 
 ### Important Libraries
-- **[AnyChart JavaScript library](https://www.anychart.com/products/anychart/overview/)**
+- **[AnyChart JS](https://www.anychart.com/products/anychart/overview/)**
   - CapitalGuard uses the AnyChart JavaScript library to create interactive visualizations of users' spending data retrieved using the Plaid API, which help users gain a better understanding of their spending behavior.
-  -  The AnyChart library was installed in CapitalGuard by adding the following to the project's Gradle dependencies:
+  -  The AnyChart library was installed in CapitalGuard with the following Gradle dependency:
   ```
   implementation 'com.github.AnyChart:AnyChart-Android:0.0.3'
   ```
   - Alternatively, you can download the [latest AAR file](https://github.com/AnyChart/AnyChart-Android/raw/master/builds/anychart-library.aar) and copy it into the libs folder of the CapitalGuard project. To learn how to do this in Android Studio, you can read the "JAR/ARR File" section of AnyChart's documentation [here](https://www.anychart.com/technical-integrations/samples/android-charts/).
 
-- **[Stanford CoreNLP library](https://stanfordnlp.github.io/CoreNLP/)**
+- **[Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/)**
   - CapitalGuard uses the Stanford CoreNLP library to perform sentiment analysis on news articles, retrieved using the News API, and Twitter tweets, retrieved using the Twitter API via the Twitter4J Java library, to provide users with advice on potential investment opportunities.
   - Specifically, CapitalGuard utilizes the following linguistic annotation capabilities of the [CoreNLP pipeline](https://stanfordnlp.github.io/CoreNLP/pipeline.html), which is the centerpiece of CoreNLP that takes in raw text, runs a series of NLP annotators on the raw text, and outputs full annotation objects:
     - [Tokenization](https://stanfordnlp.github.io/CoreNLP/tokenize.html)
@@ -128,3 +134,24 @@ A full stack Android personal finance and wealth management app built in Android
       - Constituency parsing provides a full syntactic analysis and phrase-structure tree parse of sentences, which is saved in TreeAnnotation as binary parse trees. Since a conversion from constituency parses to dependency parses is available in CoreNLP for the English language, a dependency representation is also created by the constituency conversion. Dependency parsing in CoreNLP produce three types of outputs: Basic dependencies (saved in BasicDependenciesAnnotation), enhanced dependencies (saved in EnhancedDependenciesAnnotation), and enhanced++ dependencies (saved in EnhancedPlusPlusDependenciesAnnotation). 
     - [Sentiment](https://stanfordnlp.github.io/CoreNLP/sentiment.html)
       - The CoreNLP library provides a sentiment tool that implements [Socher et al’s sentiment analysis model](https://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf). The sentiment tool attaches the analyzed sentence's binarized tree (created with the parsing annotator) to the `CoreMap`: This process adds annotations from `RNNCoreAnnotations`, which indicate the predicted class and sentiment scores for each subtree, to the nodes of the tree. You can learn more about Stanford CoreNLP's sentiment tool [here](https://nlp.stanford.edu/sentiment/).
+  - The Stanford CoreNLP library was installed in CapitalGuard with the following Gradle dependencies:
+  ```
+  implementation ('edu.stanford.nlp:stanford-corenlp:4.2.2')
+  
+  implementation ('edu.stanford.nlp:stanford-corenlp:4.2.2:models')
+  ```
+      
+- **[Twitter4J](https://twitter4j.org/en/index.html)**
+  - CapitalGuard uses the Twitter4J library to integrate CapitalGuard with the Standard v1.1 Twitter API in order to programmatically retrieve tweets.
+  - To use the Twitter API via Twitter4J in CapitalGuard, in the `getTweetSentiment` method in AdviceActivity.java, you will need to set the argument of:
+    - `setOAuthConsumerKey` method to your Twitter API Key
+    - `setOAuthConsumerSecret` method to your Twitter API Secret (Key)
+    - `setOAuthAccessToken` method to your Access Token
+    - `setOAuthAccessTokenSecret` method to your Access Token Secret
+    
+    (*Note: If you are unsure about where to find the above Twitter API keys and tokens, make sure you read the Twitter API section of this README file.*)
+  - The Twitter4J library was installed in CapitalGuard with the following Gradle dependency:
+  ```
+  implementation 'org.twitter4j:twitter4j-core:4.0.7'
+  ```
+ - Alternatively, I could have downloaded and added the [twitter4j-core-4.0.7.jar](https://twitter4j.org/archive/twitter4j-4.0.7.zip) file to CapitalGuard's classpath.
