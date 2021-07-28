@@ -156,3 +156,9 @@ A full stack Android personal finance and wealth management app built in Android
   ```
   - Alternatively, I could have downloaded and added the [twitter4j-core-4.0.7.jar](https://twitter4j.org/archive/twitter4j-4.0.7.zip) file to CapitalGuard's classpath.
   - To learn more about how the Twitter4J library implements Standard v1.1 Twitter API features, you can go [here](https://twitter4j.org/en/code-examples.html).
+
+### API and Library Diagram
+![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
+
+
+
