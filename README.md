@@ -160,7 +160,7 @@ A full stack Android personal finance and wealth management app built in Android
   - To learn more about how the Twitter4J library implements Standard v1.1 Twitter API features, you can go [here](https://twitter4j.org/en/code-examples.html).
 
 - **[Material Design Components (MDC)](https://material.io/)**
-  - CapitalGuard uses Google's [MDC library for Android](https://github.com/material-components/material-components-android) to access [Material Components](https://www.material.io/components)––such as buttons, date pickers, and dialogs––which help build a bold and intuitive UI.
+  - CapitalGuard uses Google's [MDC library for Android](https://github.com/material-components/material-components-android) to access [Material Components](https://www.material.io/components)––such as buttons, date pickers, and dialogs––which help build an intuitive UI.
   - The MDC library for Android was installed in CapitalGuard by adding:
     1. Google's Maven Repository to CapitalGuard's `build.gradle` with `google()`
     ```
@@ -181,7 +181,7 @@ A full stack Android personal finance and wealth management app built in Android
   ```
   android:theme="@style/Theme.MaterialComponents.NoActionBar"
   ```
-  - You can find the full list of Material Components themes [here](https://material.io/develop/android/docs/getting-started).
+  - You can find the full list of Material Component themes [here](https://material.io/develop/android/docs/getting-started).
 
 ### API and Library Diagram
 ![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
