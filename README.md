@@ -16,7 +16,8 @@ A full stack Android personal finance and wealth management app built in Android
 - XML
 - JavaScript (Node.js)
 ### Back end
-- ...
+- **[Firebase Realtime Database](https://firebase.google.com/docs/database)**
+  - CapitalGuard uses Google's Firebase Realtime Database to store and sync user data as JSON in realtime. To use the Firebase Database, first add Firebase to your cloned version of CapitalGuard by following [this](https://firebase.google.com/docs/android/setup) guide. Then, install and setup the Realtime Database SDK using [this](https://firebase.google.com/docs/database/android/start) reference.
 ### APIs
 - **[Plaid API](https://plaid.com/docs/api/)**
   - The following Plaid API product endpoints were used to build CapitalGuard (*Note: all Plaid API endpoint requests return standard JSON responses*):
@@ -186,5 +187,13 @@ A full stack Android personal finance and wealth management app built in Android
 ### API and Library Diagram
 ![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
 
+## Installation
+Clone this repository and import it into **Android Studio**.
+```
+git clone git@github.com:ramanv0/CapitalGuard.git
+```
 
-
+## Running CapitalGuard
+In Android Studio:
+  1. Select Run -> Run 'app' (or Debug 'app') from the menu bar
+  2. Select the device you wish to run the app on and click 'OK'
