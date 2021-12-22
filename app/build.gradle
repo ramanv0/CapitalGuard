@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.example.capitalguard"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/INDEX.LIST'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.plaid.link:sdk-core:3.2.6'
+    implementation("com.plaid:plaid-java:8.1.0")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.core:core-ktx:1.3.2"
+
+    implementation 'androidx.fragment:fragment:1.1.0@aar'
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    implementation "com.google.code.gson:gson:2.8.6"
+    implementation ('com.google.firebase:firebase-database:19.2.1'){
+        exclude group: "com.google.protobuf"
+    }
+
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+
+    implementation ('com.google.cloud:google-cloud-dialogflow:2.1.0')
+    implementation 'io.grpc:grpc-okhttp:1.37.0'
+
+    implementation 'org.twitter4j:twitter4j-core:4.0.7'
+    implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
+    implementation ('edu.stanford.nlp:stanford-corenlp:4.2.2') {
+        exclude group: 'com.sun.xml.bind', module: 'jaxb-impl'
+    }
+    implementation ('edu.stanford.nlp:stanford-corenlp:4.2.2:models') {
+        exclude group: 'com.sun.xml.bind', module: 'jaxb-impl'
+    }
+
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+
+}
+
+configurations {
+    compile.exclude group: 'com.google.protobuf', module: 'protobuf-lite'
+    compile.exclude group: 'com.google.firebase', module: 'protolite-well-known-types'
+    compile.exclude group: 'com.google.protobuf' , module: 'protobuf-java-util'
+    compile.exclude group: 'com.google.protobuf' , module: 'protobuf-javalite'
+}
+
+apply plugin: 'com.google.gms.google-services'
