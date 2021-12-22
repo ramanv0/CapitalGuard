@@ -188,7 +188,7 @@ A full stack Android personal finance and wealth management app built in Android
 ![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
 
 ## Installation
-Clone this repository and import it into **Android Studio**.
+Clone this repository and import it into Android Studio.
 ```
 git clone git@github.com:ramanv0/CapitalGuard.git
 ```
