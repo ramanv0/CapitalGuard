@@ -12,9 +12,9 @@ A full stack Android personal finance and wealth management app built in Android
 ## Technologies Used
 ### Languages
 - Java
-- Regex
 - XML
 - JavaScript (Node.js)
+- Regex
 ### Back end
 - **[Firebase Realtime Database](https://firebase.google.com/docs/database)**
   - CapitalGuard uses Google's Firebase Realtime Database to store and sync user data as JSON in realtime. To use the Firebase Database, first add Firebase to your cloned version of CapitalGuard by following [this](https://firebase.google.com/docs/android/setup) guide. Then, install and setup the Realtime Database SDK using [this](https://firebase.google.com/docs/database/android/start) reference.
