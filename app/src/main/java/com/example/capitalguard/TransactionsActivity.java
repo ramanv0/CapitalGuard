@@ -93,7 +93,7 @@ public class TransactionsActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         PlaidClient plaidClient = PlaidClient.newBuilder()
-                .clientIdAndSecret("606877ffd481e300111d6fbd", "4d6ee02896be2e2638837b27c9c6b9")
+                .clientIdAndSecret("Enter clientId", "Enter secret")
                 .sandboxBaseUrl()
                 .build();
 
