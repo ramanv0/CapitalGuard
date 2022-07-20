@@ -3,18 +3,18 @@ A full stack Android personal finance and wealth management app built in Android
 
 ## Key Features
 - Email and password based authentication with custom UI using the [Firebase Authentication SDK](https://firebase.google.com/docs/auth/android/password-auth)
-- Client-side integration to the [Plaid API](https://plaid.com/docs/api/) via [Plaid Link](https://plaid.com/docs/link/) that handles credential validation, authenticates the user’s bank account information, and connects the user’s financial accounts to Plaid
-- Alert the user of suspicious activity or overspending if the transaction data retrieved using the Plaid API exceeds the user’s spending limit
-- Data analysis and interactive visualization on the user’s spending data retrieved with the Plaid API using custom adapters, various UI [layouts](https://developer.android.com/guide/topics/ui/declaring-layout#CommonLayouts), and the [AnyChart JavaScript library](https://www.anychart.com/products/anychart/docs/), which help the user gain a better understanding of their spending behavior
-- Financial assistant chatbot with a custom chat UI built using the [Dialogflow API](https://cloud.google.com/dialogflow/docs) and [Google Cloud Functions](https://cloud.google.com/functions) written in Node.js that query the user’s financial data from the Plaid API stored in the [Firebase database](https://firebase.google.com/docs/database/android/start)
-- Provide advice to the user about potential investment opportunities based on sentiment analysis performed on news articles retrieved using the [News API](https://newsapi.org/docs) and Twitter tweets retrieved using the [Twitter API](https://developer.twitter.com/en/docs/twitter-api) via the [Twitter4J Java library](https://twitter4j.org/en/index.html) using the [Stanford CoreNLP library](https://stanfordnlp.github.io/CoreNLP/)
+- Client-side integration to the [Plaid API](https://plaid.com/docs/api/) via [Plaid Link](https://plaid.com/docs/link/) that handles credential validation, authenticates users' bank account information, and connects users' financial accounts to Plaid
+- Alert users about suspicious activity or overspending if the transaction data retrieved using the Plaid API exceeds their spending limit
+- Data analysis and interactive visualization on users' spending data retrieved with the Plaid API using custom adapters, various UI [layouts](https://developer.android.com/guide/topics/ui/declaring-layout#CommonLayouts), and the [AnyChart JavaScript library](https://www.anychart.com/products/anychart/docs/)
+- Financial assistant chatbot with a custom chat UI built using the [Dialogflow API](https://cloud.google.com/dialogflow/docs) and [Google Cloud Functions](https://cloud.google.com/functions) written in Node.js that query users' financial data from the Plaid API stored in the [Firebase database](https://firebase.google.com/docs/database/android/start)
+- Provide advice to users about potential investment opportunities based on sentiment analysis performed on news articles retrieved using the [News API](https://newsapi.org/docs) and Twitter tweets retrieved using the [Twitter API](https://developer.twitter.com/en/docs/twitter-api) (via the [Twitter4J Java library](https://twitter4j.org/en/index.html)) using the [Stanford CoreNLP library](https://stanfordnlp.github.io/CoreNLP/)
 
 ## Technologies Used
 ### Languages
 - Java
-- Regex
 - XML
 - JavaScript (Node.js)
+- Regex
 ### Back end
 - **[Firebase Realtime Database](https://firebase.google.com/docs/database)**
   - CapitalGuard uses Google's Firebase Realtime Database to store and sync user data as JSON in realtime. To use the Firebase Database, first add Firebase to your cloned version of CapitalGuard by following [this](https://firebase.google.com/docs/android/setup) guide. Then, install and setup the Realtime Database SDK using [this](https://firebase.google.com/docs/database/android/start) reference.
@@ -188,7 +188,7 @@ A full stack Android personal finance and wealth management app built in Android
 ![CapitalGuardDiagram](https://user-images.githubusercontent.com/76065183/127367708-2f9ae8e0-82d7-497f-8601-ef36e4b7db87.png)
 
 ## Installation
-Clone this repository and import it into Android Studio.
+Clone this repository and import it into Android Studio:
 ```
 git clone git@github.com:ramanv0/CapitalGuard.git
 ```
